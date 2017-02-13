@@ -82,6 +82,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
+    this.triggerXAPI('attempted');
     var self = this;
     self.$inner = $container
       .addClass('h5p-dialogcards')
@@ -1117,6 +1118,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.$inner.find('.h5p-feedback').removeClass('h5p-dialogcards-disabled');
 
       taskFinished = true;
+      self.triggerXAPIScored(1, 1, 'completed');
     }
 
     if (!taskFinished) {
